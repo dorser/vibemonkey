@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VibeMonkey Options</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 15px;
+            width: 350px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        h1 {
+            font-size: 1.2em;
+            text-align: center;
+            margin: 0 0 10px 0;
+            color: #4a4a4a;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 10px auto;
+            width: 48px;
+            height: 48px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        input[type="password"],
+        select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007aff;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        #status {
+            text-align: center;
+            font-size: 0.9em;
+            height: 1.2em;
+            color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="icons/icon48.png" alt="VibeMonkey Logo" class="logo">
+        <h1>VibeMonkey Settings</h1>
+
+        <div class="input-group">
+            <label for="api-key">API Key:</label>
+            <input type="password" id="api-key" size="50" placeholder="Enter your Google AI API Key">
+        </div>
+
+        <div class="input-group">
+            <label for="model-select">Select Model:</label>
+            <select id="model-select">
+                <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
+                <option value="gemini-1.5-pro-latest">Gemini 1.5 Pro</option>
+                <option value="gemini-pro">Gemini Pro (Vision)</option>
+            </select>
+        </div>
+
+        <button id="save-button">Save</button>
+        <p id="status"></p>
+    </div>
+    <script src="dist/options.bundle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{
+    "name": "vibemonkey",
+    "version": "1.0.0",
+    "description": "Your AI companion for browsing.",
+    "private": true,
+    "scripts": {
+        "build": "webpack --mode=production"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.28.3",
+        "@babel/preset-env": "^7.28.3",
+        "babel-loader": "^10.0.0",
+        "webpack": "^5.101.3",
+        "webpack-cli": "^6.0.1"
+    },
+    "dependencies": {
+        "@google/generative-ai": "^0.24.1",
+        "sharp": "^0.34.3",
+        "svgo": "^4.0.0"
+    }
+}

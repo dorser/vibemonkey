@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VibeMonkey</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            overflow: hidden;
+            /* Prevent body from scrolling */
+        }
+
+        #app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            /* Use viewport height */
+            box-sizing: border-box;
+            padding: 15px;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+
+        #header img {
+            width: 32px;
+            height: 32px;
+        }
+
+        #header h1 {
+            margin: 0;
+            font-size: 1.4em;
+        }
+
+        #prompt-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+
+        textarea#user-prompt {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 10px;
+            resize: vertical;
+            min-height: 60px;
+            max-height: 200px;
+        }
+
+        #generate-button {
+            background-color: #007aff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #generate-button:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+        }
+
+        #result-area {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            /* Important for flex-grow in a flex column */
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2a2a2a;
+        }
+
+        #result-wrapper {
+            flex-grow: 1;
+            overflow-y: auto;
+            /* This makes the content scrollable */
+            padding: 10px;
+        }
+
+        #result-wrapper pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        #result-actions {
+            display: none;
+            /* Hidden by default */
+            flex-shrink: 0;
+            padding: 10px;
+            border-top: 1px solid #444;
+            background-color: #2a2a2a;
+            border-radius: 0 0 5px 5px;
+            gap: 10px;
+        }
+
+        #result-actions.visible {
+            display: flex;
+        }
+
+        .action-btn {
+            flex-grow: 1;
+            background-color: #444;
+            color: white;
+            border: 1px solid #555;
+            border-radius: 5px;
+            padding: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app-container">
+        <div id="header">
+            <img src="icons/icon48.png" alt="VibeMonkey Logo">
+            <h1>VibeMonkey</h1>
+        </div>
+
+        <div id="prompt-container">
+            <textarea id="user-prompt" placeholder="Describe the visual change you want to make..."></textarea>
+            <button id="generate-button">Generate Script</button>
+        </div>
+
+        <div id="result-area">
+            <div id="result-wrapper">
+                <pre><code id="result-code"></code></pre>
+            </div>
+            <div id="result-actions">
+                <button id="copy-button" class="action-btn">Copy</button>
+                <button id="save-button" class="action-btn">Save</button>
+            </div>
+        </div>
+    </div>
+    <script src="dist/sidepanel.bundle.js"></script>
+</body>
+
+</html>
